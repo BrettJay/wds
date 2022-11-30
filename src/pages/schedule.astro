@@ -1,0 +1,72 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+
+const rooms = {
+	react: 'c 3.1 room',
+	frontEnd: 'Cocklebay room',
+	design: 'c 3.5 room',
+	product: 'c 3.6 room',
+	content: 'c 3.4 room',
+	career: 'c 3.2 room',
+}
+
+
+const schedule = [
+	{
+		time: '11:00am',
+		room: rooms.frontEnd,
+		title: 'Web Performance 2023',
+		speaker: 'Henri Helvetica',
+	},
+	{
+		time: '11:35am',
+		room: rooms.product,
+		title: 'You Better Shape Up',
+		speaker: 'Eli Ferrel',
+	},
+	{
+		time: '12:15pm',
+		room: rooms.react,
+		title: 'Vanilla Extract: CSS Preprocessing in the Age of Components',
+		speaker: 'Mark Dalgleish',
+	},
+	{
+		time: '2:15pm',
+		room: rooms.frontEnd,
+		title: 'When new CSS features collide: possibility and complexity at the intersections',
+		speaker: 'Rachel Andrew',
+	},
+	{
+		time: '2:50pm',
+		room: rooms.frontEnd,
+		title: 'Defensive CSS',
+		speaker: 'Ahmad Shadeed',
+	},
+	{
+		time: '3:25pm',
+		room: rooms.frontEnd,
+		title: 'CSS Architecture with Layers, Scope, and Nesting',
+		speaker: 'Bramus Van Damme',
+	},
+]
+---
+
+<Layout title="Schedule">
+	<main class="p-8">
+		<h1 class="text-2xl font-bold mb-8">Day One</h1>
+
+		<div class="border-l-2 border-slate-200 space-y-6">
+			{schedule.map((talk) => (
+				<div class="px-4">
+					<p class="text-sm text-slate-700">{talk.time}</p>
+					<h2 class="text-lg font-bold">{talk.title}</h2>
+					<p>{talk.speaker}, {talk.room}</p>
+				</div>
+			))}
+		</div>
+
+	</main>
+	<Navigation active='schedule' />
+</Layout>
+

@@ -1,0 +1,24 @@
+---
+export interface Props {
+	active: string;
+}
+
+const { active } = Astro.props;
+---
+
+<div class="p-4 fixed bottom-0 left-0 right-0 z-50">
+	<div class="rounded-2xl shadow-xl flex justify-center border border-slate-900/30 border-x-slate-900/20 border-t-slate-900/10">
+		<a href="/" class={`block text-center text-sm font-medium p-4 ${active === 'bookmarks' ? 'text-blue-600' : 'text-slate-700'}`}>
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mx-auto">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
+			</svg>
+			Shortcuts
+		</a>
+		<a href="/schedule" class={`text-center text-sm font-medium p-4 ${active === 'schedule' ? 'text-blue-600' : 'text-slate-700'}`}>
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mx-auto">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+			</svg>
+			Schedule
+		</a>
+	</div>
+</div>

@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+
+const shortcuts = [
+	{
+    label: 'Web Directions',
+		subtitle: 'International Convention Center Sydney',
+		type: 'conference',
+    address: {
+      street: '14 Darling Dr',
+      suburb: 'Sydney',
+      postcode: '2000',
+      state: 'NSW'
+    }
+  },
+	{
+    label: 'SydCSS',
+		subtitle: 'Dovetail',
+		type: 'conference',
+    address: {
+      street: '276 Devonshire St',
+      suburb: 'Surry Hills',
+      postcode: '2010',
+      state: 'NSW'
+    }
+  },
+	{
+    label: 'Novotel Sydney',
+		subtitle: 'Darling Square hotel',
+		type: 'hotel',
+    address: {
+      street: '17 Little Pier St',
+      suburb: 'Darling Harbour',
+      postcode: '2000',
+      state: 'NSW'
+    }
+  },
+	{
+    label: 'Little National Hotel',
+		type: 'hotel',
+    address: {
+      street: '26 Clarence St',
+      suburb: 'Sydney',
+      postcode: '2000',
+      state: 'NSW'
+    }
+  },
+	{
+    label: 'Harajuku Gyoza',
+		type: 'food',
+    address: {
+      street: '1/14 Darling Dr',
+      suburb: 'Sydney',
+      postcode: '2000',
+      state: 'NSW'
+    }
+  },
+	{
+    label: 'Frankie’s Pizza',
+		type: 'drink',
+    address: {
+      street: '50 Hunter St',
+      suburb: 'Sydney',
+      postcode: '2000',
+      state: 'NSW'
+    }
+  },
+]
+
+const linkVariants = {
+  conference: 'from-cyan-500 to-cyan-700',
+  hotel: 'from-indigo-500 to-indigo-700',
+  food: 'from-teal-500 to-teal-700',
+  drink: 'from-teal-500 to-teal-700',
+}
+
+const queryUrl = 'https://www.google.com/maps/search/'
+
+---
+
+<Layout title="Shortcuts">
+	<main class="p-8">
+		<h1 class="text-2xl font-bold mb-8">Maps directions</h1>
+		<div class="grid grid-cols-2 gap-4">
+			{shortcuts.map((shortcut) => (
+				<a target="_blank" href={`${queryUrl}${shortcut.address.street}+${shortcut.address.suburb}+${shortcut.address.postcode}+${shortcut.address.state}`} class={`block bg-gradient-to-br text-white rounded-xl shadow-xl p-4 bg-gray-50 ${linkVariants[shortcut.type]}`}>
+					<h2 class="font-bold">{shortcut.label} →</h2>
+					{(shortcut.subtitle) && <h3 class="text-sm">{shortcut.subtitle}</h3>}
+				</a>
+			))}
+		</div>
+	</main>
+	<Navigation active='bookmarks' />
+</Layout>
+
