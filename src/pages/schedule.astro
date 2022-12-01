@@ -12,55 +12,85 @@ const rooms = {
 }
 
 
-const schedule = [
+const early_schedule = [
 	{
-		time: '11:00am',
+		time: '10:45am',
+		room: rooms.design,
+		title: 'Designing with friction, it’s irritatingly good',
+		speaker: 'Patima Tantiprasut',
+	},
+	{
+		time: '11:20am',
+		room: rooms.career,
+		title: 'Becoming a design leader without becoming a design manager',
+		speaker: 'Richard Sison',
+	},
+	{
+		time: '11:55am',
+		room: rooms.career,
+		title: 'Should designers _____?',
+		speaker: 'Corey Ginnivan',
+	},
+	{
+		time: '1:50pm',
 		room: rooms.frontEnd,
-		title: 'Web Performance 2023',
-		speaker: 'Henri Helvetica',
+		title: 'Controlling, designing, and improving text on the web',
+		speaker: 'Mandy Michael',
+	},
+]
+
+const conflict_schedule = [
+	{
+		time: '2:25pm',
+		room: rooms.career,
+		title: 'Sync to Asnc - adjusting to the new work style',
+		speaker: 'Anton Ball',
 	},
 	{
-		time: '11:35am',
-		room: rooms.product,
-		title: 'You Better Shape Up',
-		speaker: 'Eli Ferrel',
+		time: '2:25pm',
+		room: rooms.design,
+		title: 'Operating a global fully remote product design team',
+		speaker: 'Natalie Harper',
 	},
+]
+
+const late_schedule = [
 	{
-		time: '12:15pm',
-		room: rooms.react,
-		title: 'Vanilla Extract: CSS Preprocessing in the Age of Components',
-		speaker: 'Mark Dalgleish',
-	},
-	{
-		time: '2:15pm',
+		time: '3:00pm',
 		room: rooms.frontEnd,
-		title: 'When new CSS features collide: possibility and complexity at the intersections',
-		speaker: 'Rachel Andrew',
-	},
-	{
-		time: '2:50pm',
-		room: rooms.frontEnd,
-		title: 'Defensive CSS',
-		speaker: 'Ahmad Shadeed',
-	},
-	{
-		time: '3:25pm',
-		room: rooms.frontEnd,
-		title: 'CSS Architecture with Layers, Scope, and Nesting',
-		speaker: 'Bramus Van Damme',
+		title: 'Making Content Creation Tools Accessible',
+		speaker: 'Julie Grundy',
 	},
 ]
 ---
 
 <Layout title="Schedule">
 	<main class="p-8">
-		<h1 class="text-2xl font-bold mb-8">Day One</h1>
+		<h1 class="text-2xl font-bold mb-8">Day Two</h1>
 
 		<div class="border-l-2 border-slate-200 space-y-6">
-			{schedule.map((talk) => (
-				<div class="px-4">
+			{early_schedule.map((talk) => (
+				<div class="px-4 relative">
 					<p class="text-sm text-slate-700">{talk.time}</p>
-					<h2 class="text-lg font-bold">{talk.title}</h2>
+					<h2 class="text-lg font-bold leading-tight">{talk.title}</h2>
+					<p>{talk.speaker}, {talk.room}</p>
+				</div>
+			))}
+
+			<div class="grid grid-cols-2">
+				{conflict_schedule.map((talk) => (
+					<div class="px-4 relative">
+						<p class="text-sm text-slate-700">{talk.time}</p>
+						<h2 class="text-lg font-bold leading-tight">{talk.title}</h2>
+						<p>{talk.speaker}, {talk.room}</p>
+					</div>
+				))}
+			</div>
+
+			{late_schedule.map((talk) => (
+				<div class="px-4 relative">
+					<p class="text-sm text-slate-700">{talk.time}</p>
+					<h2 class="text-lg font-bold leading-tight">{talk.title}</h2>
 					<p>{talk.speaker}, {talk.room}</p>
 				</div>
 			))}
