@@ -11,8 +11,46 @@ const rooms = {
 	career: 'c 3.2 room',
 }
 
+const day_one = [
+ 	{
+ 		time: '11:00am',
+ 		room: rooms.frontEnd,
+ 		title: 'Web Performance 2023',
+ 		speaker: 'Henri Helvetica',
+ 	},
+ 	{
+ 		time: '11:35am',
+ 		room: rooms.product,
+ 		title: 'You Better Shape Up',
+ 		speaker: 'Eli Ferrel',
+ 	},
+ 	{
+ 		time: '12:15pm',
+ 		room: rooms.react,
+ 		title: 'Vanilla Extract: CSS Preprocessing in the Age of Components',
+ 		speaker: 'Mark Dalgleish',
+ 	},
+ 	{
+ 		time: '2:15pm',
+ 		room: rooms.frontEnd,
+ 		title: 'When new CSS features collide: possibility and complexity at the intersections',
+ 		speaker: 'Rachel Andrew',
+ 	},
+ 	{
+ 		time: '2:50pm',
+ 		room: rooms.frontEnd,
+ 		title: 'Defensive CSS',
+ 		speaker: 'Ahmad Shadeed',
+ 	},
+ 	{
+ 		time: '3:25pm',
+ 		room: rooms.frontEnd,
+ 		title: 'CSS Architecture with Layers, Scope, and Nesting',
+ 		speaker: 'Bramus Van Damme',
+ 	},
+ ]
 
-const early_schedule = [
+const day_two = [
 	{
 		time: '10:45am',
 		room: rooms.design,
@@ -37,9 +75,6 @@ const early_schedule = [
 		title: 'Controlling, designing, and improving text on the web',
 		speaker: 'Mandy Michael',
 	},
-]
-
-const conflict_schedule = [
 	{
 		time: '2:25pm',
 		room: rooms.career,
@@ -47,29 +82,23 @@ const conflict_schedule = [
 		speaker: 'Anton Ball',
 	},
 	{
-		time: '2:25pm',
-		room: rooms.design,
-		title: 'Operating a global fully remote product design team',
-		speaker: 'Natalie Harper',
-	},
-]
-
-const late_schedule = [
-	{
 		time: '3:00pm',
 		room: rooms.frontEnd,
 		title: 'Making Content Creation Tools Accessible',
 		speaker: 'Julie Grundy',
 	},
 ]
+
 ---
 
 <Layout title="Schedule">
 	<main class="p-8">
-		<h1 class="text-2xl font-bold mb-8">Day two</h1>
+		<h1 class="text-2xl font-bold mb-8">Schedule</h1>
+
+		<h2 class="text-xl font-bold mb-4">Day One</h2>
 
 		<div class="border-l-2 border-slate-200 space-y-6">
-			{early_schedule.map((talk) => (
+			{day_one.map((talk) => (
 				<div class="px-4 relative">
 					<p class="text-sm text-slate-700">{talk.time}</p>
 					<h2 class="text-lg font-bold leading-tight">{talk.title}</h2>
@@ -77,25 +106,17 @@ const late_schedule = [
 				</div>
 			))}
 
-			<div class="grid grid-cols-2">
-				{conflict_schedule.map((talk) => (
-					<div class="px-4 relative">
-						<p class="text-sm text-slate-700">{talk.time}</p>
-						<h2 class="text-lg font-bold leading-tight">{talk.title}</h2>
-						<p>{talk.speaker}, {talk.room}</p>
-					</div>
-				))}
-			</div>
-
-			{late_schedule.map((talk) => (
-				<div class="px-4 relative">
-					<p class="text-sm text-slate-700">{talk.time}</p>
-					<h2 class="text-lg font-bold leading-tight">{talk.title}</h2>
-					<p>{talk.speaker}, {talk.room}</p>
-				</div>
-			))}
 		</div>
 
+		<h2 class="text-xl font-bold mb-4 mt-8">Day Two</h2>
+		<div class="border-l-2 border-slate-200 space-y-6">
+			{day_two.map((talk) => (
+				<div class="px-4 relative">
+					<p class="text-sm text-slate-700">{talk.time}</p>
+					<h2 class="text-lg font-bold leading-tight">{talk.title}</h2>
+					<p>{talk.speaker}, {talk.room}</p>
+				</div>
+			))}
 	</main>
 	<Navigation active='schedule' />
 </Layout>
